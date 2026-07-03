@@ -1,0 +1,1093 @@
+
+/* ---------- CSS VARIABLES ---------- */
+
+
+:root{
+
+    --primary:#6A0DAD;
+    --secondary:#8E44EC;
+    --dark:#4B0082;
+    --light:#EAD7FF;
+    --white:#ffffff;
+    --bg:#F8F3FF;
+    --gold:#FFD166;
+
+    --shadow:0 15px 40px rgba(0,0,0,.15);
+
+    --radius:20px;
+
+}
+
+
+
+/* ---------- RESET ---------- */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+    background:var(--bg);
+    color:#333;
+    overflow-x:hidden;
+
+}
+
+
+/* ==========================================================
+   MUSIC BUTTON
+========================================================== */
+
+#music-btn{
+
+    position:fixed;
+
+    right:25px;
+
+    bottom:25px;
+
+    width:60px;
+
+    height:60px;
+
+    border-radius:50%;
+
+    border:none;
+
+    background:var(--primary);
+
+    color:white;
+
+    font-size:1.4rem;
+
+    cursor:pointer;
+
+    box-shadow:var(--shadow);
+
+    z-index:999;
+
+    transition:.3s;
+
+}
+
+#music-btn:hover{
+
+    transform:scale(1.1);
+
+}
+
+/* ==========================================================
+   UTILITIES
+========================================================== */
+
+.hidden{
+
+    opacity:0;
+    pointer-events:none;
+
+}
+
+.show{
+
+    opacity:1;
+
+}
+
+/*==========================================================
+    LOADING SCREEN RESPONSIVE
+==========================================================*/
+
+@media screen and (max-width:768px){
+
+    #loading-screen{
+        padding:20px;
+    }
+
+    /* Background glow */
+    #loading-screen::before{
+        width:420px;
+        height:420px;
+        filter:blur(10px);
+    }
+
+    .loading-mist{
+        filter:blur(60px);
+    }
+
+    .loader-content{
+        width:100%;
+        gap:16px;
+    }
+
+    /* Heart */
+    .heart-loader{
+        width:85px;
+        height:85px;
+        filter:
+            drop-shadow(0 0 12px #ff5ca8)
+            drop-shadow(0 0 22px #ff82bd);
+    }
+
+    .heart-core{
+        width:100%;
+        height:100%;
+    }
+
+    .heart-loader::before,
+    .heart-loader::after{
+        width:85px;
+        height:85px;
+    }
+
+    .heart-loader::before{
+        top:-42.5px;
+    }
+
+    .heart-loader::after{
+        left:42.5px;
+    }
+
+    /* Flower Ring */
+    .flower-ring{
+        width:170px;
+        height:170px;
+    }
+
+    .flower-ring span{
+        font-size:18px;
+    }
+
+    .flower-ring span:nth-child(1){transform:rotate(0deg) translate(68px);}
+    .flower-ring span:nth-child(2){transform:rotate(60deg) translate(68px);}
+    .flower-ring span:nth-child(3){transform:rotate(120deg) translate(68px);}
+    .flower-ring span:nth-child(4){transform:rotate(180deg) translate(68px);}
+    .flower-ring span:nth-child(5){transform:rotate(240deg) translate(68px);}
+    .flower-ring span:nth-child(6){transform:rotate(300deg) translate(68px);}
+
+    /* Text */
+    .loading-text{
+        margin-top:135px;
+        font-size:.95rem;
+        letter-spacing:1px;
+        text-align:center;
+        padding:0 15px;
+    }
+
+    /* Progress */
+    .loading-bar{
+        width:220px;
+        height:8px;
+    }
+
+}
+
+/*==========================================================
+    SMALL PHONES
+==========================================================*/
+
+@media screen and (max-width:480px){
+
+    #loading-screen{
+        padding:15px;
+    }
+
+    #loading-screen::before{
+        width:320px;
+        height:320px;
+    }
+
+    .loader-content{
+        gap:14px;
+    }
+
+    /* Heart */
+    .heart-loader{
+        width:70px;
+        height:70px;
+    }
+
+    .heart-loader::before,
+    .heart-loader::after{
+        width:70px;
+        height:70px;
+    }
+
+    .heart-loader::before{
+        top:-35px;
+    }
+
+    .heart-loader::after{
+        left:35px;
+    }
+
+    /* Flowers */
+    .flower-ring{
+        width:140px;
+        height:140px;
+    }
+
+    .flower-ring span{
+        font-size:15px;
+    }
+
+    .flower-ring span:nth-child(1){transform:rotate(0deg) translate(55px);}
+    .flower-ring span:nth-child(2){transform:rotate(60deg) translate(55px);}
+    .flower-ring span:nth-child(3){transform:rotate(120deg) translate(55px);}
+    .flower-ring span:nth-child(4){transform:rotate(180deg) translate(55px);}
+    .flower-ring span:nth-child(5){transform:rotate(240deg) translate(55px);}
+    .flower-ring span:nth-child(6){transform:rotate(300deg) translate(55px);}
+
+    .loading-text{
+        margin-top:110px;
+        font-size:.8rem;
+        letter-spacing:.5px;
+        line-height:1.5;
+    }
+
+    .loading-bar{
+        width:180px;
+        height:7px;
+    }
+
+}
+/*==========================================================
+    MOBILE RESPONSIVE FIXES
+    Paste at the VERY END of style.css
+==========================================================*/
+
+@media screen and (max-width:768px){
+
+    html{
+        font-size:14px;
+    }
+
+    body{
+        overflow-x:hidden;
+    }
+
+    section{
+        padding:70px 18px !important;
+    }
+
+    h1{
+        font-size:2.8rem !important;
+    }
+
+    h2{
+        font-size:2.2rem !important;
+    }
+
+    h3{
+        font-size:1.7rem !important;
+    }
+
+    p{
+        font-size:1rem !important;
+        line-height:1.8;
+    }
+
+    /*================ HERO ================*/
+
+    #hero{
+        min-height:100vh;
+        padding:40px 20px;
+    }
+
+    .hero-content{
+        width:100%;
+    }
+
+    .hero-content h1{
+        font-size:3rem !important;
+    }
+
+    .hero-content p{
+        font-size:1rem;
+    }
+
+    #start-btn{
+        width:100%;
+        max-width:280px;
+        padding:15px;
+    }
+
+    /*================ LOADER ================*/
+
+    .heart-loader{
+        width:90px;
+        height:90px;
+    }
+
+    .heart-loader::before,
+    .heart-loader::after{
+        width:90px;
+        height:90px;
+    }
+
+    .heart-loader::before{
+        top:-45px;
+    }
+
+    .heart-loader::after{
+        left:45px;
+    }
+
+    .flower-ring{
+        transform:scale(.75);
+    }
+
+    .loading-text{
+        margin-top:130px;
+        font-size:.9rem;
+    }
+
+    .loading-bar{
+        width:220px;
+    }
+
+    /*================ ENVELOPE ================*/
+
+    #envelope-section{
+        padding:80px 15px;
+    }
+
+    .envelope{
+        width:280px;
+        height:200px;
+    }
+
+    .envelope-glow{
+        width:320px;
+        height:320px;
+    }
+
+    .envelope-flap{
+        height:90px;
+    }
+
+    .letter{
+        width:95%;
+        min-height:auto;
+        padding:25px;
+        top:-20%;
+    }
+
+    .letter h3{
+        font-size:2rem !important;
+    }
+
+    #letterText{
+        font-size:.95rem;
+        line-height:1.8;
+    }
+
+    .paper-decoration{
+        display:none;
+    }
+/*==========================================================
+    MOBILE TIMELINE (Same Width as Chapter)
+==========================================================*/
+
+@media (max-width:768px){
+
+    .timeline-container{
+        max-width:720px;
+        width:100%;
+        margin:0 auto;
+    }
+
+    .timeline-container::before{
+        left:24px;
+    }
+
+    .timeline-item{
+        width:100%;
+        left:0 !important;
+        padding:0 0 35px 55px;
+        text-align:left !important;
+    }
+
+    .timeline-item.left,
+    .timeline-item.right{
+        left:0;
+        text-align:left;
+    }
+
+    .timeline-item::after{
+        left:15px !important;
+        right:auto;
+        top:28px;
+    }
+
+    .timeline-content{
+        width:100%;
+        max-width:720px;   /* Same width as .chapter */
+        margin:0 auto;
+        padding:20px;
+        border-radius:24px;
+        box-sizing:border-box;
+    }
+
+    .memory-image{
+        height:190px;
+    }
+
+    .chapter{
+        max-width:720px;
+        width:100%;
+        margin:70px auto;
+        padding:22px;
+    }
+
+}
+
+/*==========================================================
+    MOBILE ENVELOPE LETTER FIX
+==========================================================*/
+
+@media screen and (max-width:768px){
+
+    #envelope-section{
+        min-height:auto;
+        padding:100px 15px 250px;
+        overflow:visible;
+    }
+
+    .envelope-container{
+        width:100%;
+        display:flex;
+        justify-content:center;
+        overflow:visible;
+    }
+
+    .envelope{
+        width:280px;
+        height:200px;
+    }
+
+    .letter{
+
+        position:absolute;
+
+        left:50%;
+        top:15px;
+
+        width:95vw;
+        max-width:360px;
+
+        min-height:auto;
+
+        padding:22px;
+
+        border-radius:18px;
+
+        transform:translateX(-50%) translateY(0);
+
+        opacity:0;
+
+        z-index:20;
+
+        overflow-y:auto;
+
+        max-height:70vh;
+
+    }
+
+    .envelope.open .letter{
+
+        opacity:1;
+
+        transform:translateX(-50%) translateY(-210px);
+
+    }
+
+    #letterText{
+
+        font-size:.95rem;
+        line-height:1.8;
+
+    }
+
+    .letter h3{
+
+        font-size:1.9rem;
+
+    }
+
+    .letter-signature h4{
+
+        font-size:1.8rem;
+
+    }
+
+    #continue-btn{
+
+        margin-top:25px;
+        width:100%;
+
+    }
+
+}
+    /*================ ALBUM ================*/
+
+    .album-grid{
+        grid-template-columns:1fr;
+        grid-auto-rows:260px;
+        gap:28px;
+    }
+
+    .album-item,
+    .album-item.wide,
+    .album-item.tall{
+        grid-column:span 1 !important;
+        grid-row:span 1 !important;
+        transform:none !important;
+    }
+
+    .photo-frame{
+        padding:10px 10px 45px;
+    }
+
+    .photo-caption{
+        font-size:1.4rem;
+    }
+
+    /*================ REASONS ================*/
+
+    .reasons-grid{
+        grid-template-columns:1fr;
+    }
+
+    .reason-card{
+        height:260px;
+    }
+
+    /*================ WISH ================*/
+
+    #wish{
+        padding:80px 18px !important;
+    }
+
+    .wish-paper{
+        padding:30px 22px;
+    }
+
+    .wish-paper h3{
+        font-size:2rem !important;
+    }
+
+    .wish-paper p{
+        font-size:1rem;
+    }
+
+    .wax-stamp{
+        width:55px;
+        height:55px;
+        font-size:22px;
+        top:20px;
+        right:20px;
+    }
+
+    /*================ GIFT ================*/
+
+    .gift-box{
+        transform:scale(.8);
+    }
+
+    .gift-letter{
+        width:230px;
+    }
+
+    /*================ FINALE ================*/
+
+    #finale{
+        padding:100px 20px;
+    }
+
+    .finale-card{
+        padding:35px 20px;
+    }
+
+    #finaleTitle{
+        font-size:3rem !important;
+    }
+
+    #finaleSubtitle{
+        font-size:1rem;
+    }
+/*==========================================================
+    MOBILE FINALE CAKE
+==========================================================*/
+
+@media screen and (max-width:768px){
+
+    #birthdayCake{
+
+        width:180px;
+        margin:40px auto 30px;
+        transform:none;
+
+    }
+
+    /* Candles */
+
+    .cake-candles{
+
+        width:120px;
+        margin:0 auto -4px;
+        justify-content:space-between;
+
+    }
+
+    .cake-candle{
+
+        width:8px;
+        height:34px;
+
+    }
+
+    .cake-flame{
+
+        width:10px;
+        height:14px;
+        top:-12px;
+
+    }
+
+    /* Top Layer */
+
+    .cake-top{
+
+        width:110px;
+        height:38px;
+        margin:auto;
+        margin-top:-6px;
+
+    }
+
+    /* Middle Layer */
+
+    .cake-middle{
+
+        width:145px;
+        height:50px;
+        margin:auto;
+        margin-top:-5px;
+
+    }
+
+    /* Bottom Layer */
+
+    .cake-bottom{
+
+        width:180px;
+        height:65px;
+        margin:auto;
+
+    }
+
+    /* Message */
+
+    .cake-message{
+
+        margin-bottom:20px;
+        font-size:.95rem;
+        line-height:1.6;
+        padding:0 15px;
+
+    }
+
+    /* Wish Granted */
+
+    #wishGranted{
+
+        margin-top:20px;
+        font-size:1.5rem;
+
+    }
+
+}
+
+    #replayBtn{
+        width:100%;
+    }
+
+    @media screen and (max-width:480px){
+
+    #birthdayCake{
+
+        width:150px;
+
+    }
+
+    .cake-bottom{
+
+        width:150px;
+        height:55px;
+
+    }
+
+    .cake-middle{
+
+        width:120px;
+        height:42px;
+
+    }
+
+    .cake-top{
+
+        width:90px;
+        height:32px;
+
+    }
+
+    .cake-candles{
+
+        width:95px;
+
+    }
+
+    .cake-candle{
+
+        height:28px;
+        width:7px;
+
+    }
+
+    .cake-flame{
+
+        width:9px;
+        height:12px;
+
+    }
+
+    #wishGranted{
+
+        font-size:1.3rem;
+
+    }
+
+}
+
+    /*================ LIGHTBOX ================*/
+
+    #lightbox img{
+        max-width:95%;
+        max-height:75%;
+    }
+
+    #closeLightbox{
+        top:15px;
+        right:20px;
+        font-size:2.2rem;
+    }
+
+    /*================ MUSIC BUTTON ================*/
+
+    #music-btn{
+        width:55px;
+        height:55px;
+        right:15px;
+        bottom:15px;
+    }
+
+}
+
+/*================ SMALL PHONES =================*/
+
+@media screen and (max-width:480px){
+
+    html{
+        font-size:13px;
+    }
+
+    .hero-content h1{
+        font-size:2.4rem !important;
+    }
+
+    h2{
+        font-size:2rem !important;
+    }
+
+    .envelope{
+        width:240px;
+        height:170px;
+    }
+
+    .letter{
+        padding:18px;
+    }
+
+    .memory-image{
+        height:160px;
+    }
+
+    .wish-paper{
+        padding:20px;
+    }
+
+    .finale-card{
+        padding:25px 15px;
+    }
+
+    #birthdayCake{
+        transform:scale(.65);
+    }
+
+}
+
+/*==========================================================
+    MOBILE BOUQUET FIX
+==========================================================*/
+
+@media screen and (max-width:768px){
+
+    #flowers{
+        padding:80px 15px;
+        overflow:hidden;
+    }
+
+    #flowers h2{
+        font-size:2.2rem !important;
+        margin-bottom:40px;
+    }
+
+    .flower-stage,
+    .bouquet-stage{
+        display:flex;
+        justify-content:center;
+        align-items:flex-end;
+        width:100%;
+        overflow:visible;
+        transform:scale(.72);
+        transform-origin:bottom center;
+    }
+
+    .bouquet{
+        transform:scale(.72);
+        transform-origin:bottom center;
+        margin:0 auto;
+    }
+
+    .flower{
+        transform:scale(.85);
+    }
+
+    .flower-stem{
+        height:130px;
+    }
+
+    .flower-head{
+        width:55px;
+        height:55px;
+    }
+
+    .leaf{
+        transform:scale(.8);
+    }
+
+    .pot,
+    .vase{
+        transform:scale(.9);
+    }
+
+    #growBouquetBtn,
+    .grow-btn{
+        width:100%;
+        max-width:280px;
+        margin:30px auto 0;
+    }
+
+    #bouquetMessage{
+        font-size:1rem;
+        padding:0 15px;
+        margin-top:25px;
+    }
+
+}
+
+/*================ SMALL PHONES =================*/
+
+@media screen and (max-width:480px){
+
+    .flower-stage,
+    .bouquet-stage{
+        transform:scale(.58);
+    }
+
+    .bouquet{
+        transform:scale(.58);
+    }
+
+    .flower{
+        transform:scale(.7);
+    }
+
+    .flower-head{
+        width:45px;
+        height:45px;
+    }
+
+    .flower-stem{
+        height:110px;
+    }
+
+    #flowers{
+        padding:60px 10px;
+    }
+
+    #bouquetMessage{
+        font-size:.9rem;
+    }
+
+}
+
+/* =========================
+   SCENE TRANSITIONS
+========================= */
+
+.scene {
+    opacity: 0;
+    transform: translateY(60px) scale(0.98);
+    filter: blur(8px);
+    transition: all 1s ease;
+    will-change: opacity, transform, filter;
+}
+
+.scene.active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+}   
+
+/* =========================
+   LIGHTBOX BACKGROUND BLUR
+========================= */
+
+#lightboxBlur{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+        rgba(10,10,25,.72);
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
+
+}
+
+.lightbox-content{
+
+    position:relative;
+
+    z-index:5;
+
+    animation:
+
+        zoomLight .45s ease;
+
+}
+
+#lightboxImg{
+
+    max-width:88vw;
+
+    max-height:84vh;
+
+    border-radius:22px;
+
+    border:8px solid white;
+
+    box-shadow:
+
+        0 25px 70px rgba(0,0,0,.45);
+
+}
+
+#photoCounter{
+
+    position:absolute;
+
+    bottom:-45px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    color:white;
+
+    font-size:1rem;
+
+    letter-spacing:2px;
+
+}
+
+.light-nav{
+
+    position:absolute;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    width:65px;
+
+    height:65px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.18);
+
+    backdrop-filter:blur(12px);
+
+    color:white;
+
+    font-size:2rem;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+    z-index:10;
+
+}
+
+.light-nav:hover{
+
+    background:white;
+
+    color:#7B2CBF;
+
+    transform:
+
+        translateY(-50%)
+
+        scale(1.1);
+
+}
+
+#prev{
+
+    left:40px;
+
+}
+
+#next{
+
+    right:40px;
+
+}
