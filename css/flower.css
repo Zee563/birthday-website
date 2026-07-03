@@ -1,0 +1,1075 @@
+
+/*==========================================================
+    GROW BOUQUET BUTTON
+==========================================================*/
+
+.grow-btn{
+
+    display:block;
+
+    margin:30px auto 60px;
+
+    padding:16px 38px;
+
+    font-size:1.05rem;
+
+    font-weight:600;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:linear-gradient(135deg,#ff9ecf,#c77dff);
+
+    color:#fff;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+    box-shadow:0 15px 35px rgba(199,125,255,.35);
+
+}
+
+.grow-btn:hover{
+
+    transform:translateY(-5px) scale(1.04);
+
+    box-shadow:0 20px 45px rgba(199,125,255,.5);
+
+}
+
+.grow-btn:disabled{
+
+    opacity:.6;
+
+    cursor:default;
+
+}
+/*==================================================
+    FLOWER BOUQUET (PART 1)
+==================================================*/
+
+#flowers{
+
+    padding:140px 20px;
+    background:linear-gradient(
+        to bottom,
+        #fff8fb,
+        #ffeef6
+    );
+
+    text-align:center;
+
+}
+
+#flowers h2{
+
+    font-size:3rem;
+    margin-bottom:40px;
+
+}
+
+.grow-btn{
+
+    padding:15px 40px;
+    border:none;
+    border-radius:40px;
+
+    background:#ff6b9d;
+    color:white;
+
+    font-size:1rem;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    margin-bottom:60px;
+
+}
+
+.grow-btn:hover{
+
+    transform:translateY(-3px);
+
+}
+
+.bouquet-stage{
+
+    width:500px;
+    height:520px;
+
+    margin:auto;
+
+    position:relative;
+
+}
+
+/*==========================================================
+    BOUQUET WIND
+==========================================================*/
+
+.stem{
+
+    transform-origin:bottom center;
+
+}
+
+.flower{
+
+    transform-origin:center bottom;
+
+}
+
+.stem.grown .flower{
+
+    animation:flowerWind 4s ease-in-out infinite;
+
+}
+
+
+
+.stem.s1{animation-delay:.2s;}
+.stem.s2{animation-delay:.8s;}
+.stem.s3{animation-delay:1.5s;}
+.stem.s4{animation-delay:.5s;}
+.stem.s5{animation-delay:2s;}
+.stem.s6{animation-delay:1s;}
+.stem.s7{animation-delay:2.4s;}
+.stem.s8{animation-delay:1.3s;}
+.stem.s9{animation-delay:.7s;}
+.stem.s10{animation-delay:2.8s;}
+.stem.s11{animation-delay:1.8s;}
+.stem.s12{animation-delay:3.2s;}
+
+
+.flower{
+
+    transform-origin:center bottom;
+
+}
+
+.stem.grown .flower{
+
+    animation:flowerWind 4s ease-in-out infinite;
+
+}
+
+.leaf{
+
+    transform-origin:left center;
+
+}
+
+.stem.grown .leaf{
+
+    animation:leafFlutter 2.5s ease-in-out infinite;
+
+}
+
+
+.butterfly{
+
+    animation:
+
+    butterflyFly 10s linear infinite,
+
+    butterflyFloat 4s ease-in-out infinite;
+
+}
+
+
+/*=============================
+    POT SHADOW
+=============================*/
+
+.pot-shadow{
+
+    position:absolute;
+
+    width:230px;
+    height:35px;
+
+    background:rgba(0,0,0,.15);
+
+    left:50%;
+    bottom:45px;
+
+    transform:translateX(-50%);
+
+    border-radius:50%;
+
+    filter:blur(10px);
+
+}
+
+/*==========================================================
+    PREMIUM FLOWER POT
+==========================================================*/
+
+.flower-pot{
+
+    position:relative;
+
+    width:320px;
+
+    height:180px;
+
+    top: 50%;
+    left: 22%;
+
+    background:
+    linear-gradient(
+        to bottom,
+        #c68555 0%,
+        #a95d36 35%,
+        #8c4526 70%,
+        #6d3117 100%
+    );
+
+    border-radius:
+        25px
+        25px
+        60px
+        60px;
+
+    overflow:hidden;
+
+    box-shadow:
+
+        inset 0 6px 12px rgba(255,255,255,.25),
+
+        inset 0 -15px 25px rgba(0,0,0,.18),
+
+        0 30px 50px rgba(0,0,0,.25);
+
+}
+.pot-rim{
+
+    position:absolute;
+
+    left:-8px;
+
+    top:-14px;
+
+    width:336px;
+
+    height:34px;
+
+    border-radius:50px;
+
+    background:
+
+    linear-gradient(
+
+        to bottom,
+
+        #efb27d,
+
+        #b8693e
+
+    );
+
+    box-shadow:
+
+    inset 0 4px 8px rgba(255,255,255,.35),
+
+    inset 0 -5px 8px rgba(0,0,0,.15);
+
+    z-index:1;
+
+}
+
+.flower-pot::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:18px;
+
+    top:58px;
+
+    width:284px;
+
+    height:8px;
+
+    border-radius:30px;
+
+    background:
+
+    linear-gradient(
+
+        90deg,
+
+        #ffe8a6,
+
+        #f6c34d,
+
+        #ffe8a6
+
+    );
+
+}
+
+.flower-pot::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:28px;
+
+    top:20px;
+
+    width:70px;
+
+    height:120px;
+
+    border-radius:50%;
+
+    background:
+
+    linear-gradient(
+
+        to right,
+
+        rgba(255,255,255,.45),
+
+        transparent
+
+    );
+
+    transform:rotate(-12deg);
+
+}
+
+.soil{
+
+    position:absolute;
+
+    left:14px;
+
+    top:8px;
+
+    width:292px;
+
+    height:48px;
+
+    border-radius:50%;
+
+    background:
+
+    radial-gradient(
+
+        circle at center,
+
+        #5e3d21,
+
+        #372012
+
+    );
+
+    overflow:hidden;
+
+}
+
+.soil::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+    radial-gradient(circle,#6d4727 2px,transparent 2px);
+
+    background-size:18px 18px;
+
+    opacity:.35;
+
+}
+
+.pot-shadow{
+
+    width:360px;
+
+    height:42px;
+
+    margin:auto;
+
+    border-radius:50%;
+
+    background:
+
+    radial-gradient(
+
+        rgba(0,0,0,.28),
+
+        transparent 70%
+
+    );
+
+    transform:translateY(22px);
+
+    filter:blur(10px);
+
+}
+
+.flower-pot{
+
+    animation:potGlow 6s ease-in-out infinite;
+
+}
+
+
+/*=============================
+    STEM CONTAINER
+=============================*/
+
+.stem-container{
+
+    position:absolute;
+
+    bottom:220px;
+
+    left:50%;
+
+    width:320px;
+
+    height:260px;
+
+    transform:translateX(-50%);
+    z-index: 2;
+}
+
+/*=============================
+    STEM
+=============================*/
+
+.stem{
+
+    position:absolute;
+
+    bottom:0;
+
+    left:50%;
+
+    width:8px;
+
+    height:0;
+
+    border-radius:20px;
+
+    background:linear-gradient(
+        to top,
+        #2c7a34,
+        #61d46b
+    );
+    z-index: 1;
+    transform-origin:bottom center;
+
+    transition:
+height .9s cubic-bezier(.22,.61,.36,1);
+
+    transition:
+    height .8s ease,
+    transform .8s ease;
+}
+
+.short{
+height:150px;
+}
+
+.medium{
+height:190px;
+}
+
+.tall{
+height:230px;
+}
+
+.extra{
+height:270px;
+}
+
+.s1{
+left:26%;
+transform:rotate(-35deg);
+}
+
+.s2{
+left:31%;
+transform:rotate(-28deg);
+}
+
+.s3{
+left:36%;
+transform:rotate(-22deg);
+}
+
+.s4{
+left:41%;
+transform:rotate(-15deg);
+}
+
+.s5{
+left:46%;
+transform:rotate(-8deg);
+}
+
+.s6{
+left:50%;
+transform:translateX(-50%);
+}
+
+.s7{
+left:54%;
+transform:rotate(8deg);
+}
+
+.s8{
+left:59%;
+transform:rotate(15deg);
+}
+
+.s9{
+left:64%;
+transform:rotate(22deg);
+}
+
+.s10{
+left:69%;
+transform:rotate(28deg);
+}
+
+.s11{
+left:74%;
+transform:rotate(35deg);
+}
+
+.s12{
+left:79%;
+transform:rotate(42deg);
+}
+/*=============================
+        LEAF
+=============================*/
+
+.leaf{
+
+    position:absolute;
+
+    width:22px;
+    height:12px;
+
+    background:linear-gradient(
+        to right,
+        #5fe86c,
+        #2ea53f
+    );
+
+    opacity:0;
+
+    transform:scale(0);
+
+    transition:.5s;
+
+}
+
+.leaf.left{
+
+    left:-20px;
+
+    top:45%;
+
+    border-radius:100% 0 100% 0;
+
+    transform:rotate(-40deg) scale(0);
+
+}
+
+.leaf.right{
+
+    right:-20px;
+
+    top:65%;
+
+    border-radius:0 100% 0 100%;
+
+    transform:rotate(40deg) scale(0);
+
+}
+
+.stem.grown .leaf{
+
+    opacity:1;
+
+}
+
+.stem.grown .leaf.left{
+
+    transform:
+        rotate(-40deg)
+        scale(1);
+
+}
+
+.stem.grown .leaf.right{
+
+    transform:
+        rotate(40deg)
+        scale(1);
+
+}
+
+/*=============================
+        FLOWER
+=============================*/
+
+/*==============================
+        FLOWER
+==============================*/
+
+.flower{
+
+    position:absolute;
+
+    top:-42px;
+    left:50%;
+
+    width:60px;
+    height:60px;
+
+    transform:
+        translateX(-50%)
+        scale(0);
+
+    transition:
+        transform .7s ease;
+
+    z-index:20;
+
+}
+
+/*====================================
+    FLOWER TYPES
+====================================*/
+
+.flower.blossom .flower-petal{
+
+    background:radial-gradient(
+        circle at 30% 30%,
+        #f4d8ff,
+        #a84dff 70%
+    );
+
+}
+
+.flower.daisy .flower-petal{
+
+    background:radial-gradient(
+        circle at 30% 30%,
+        white,
+        #fff5c4 80%
+    );
+
+}
+
+.flower.rose .flower-petal{
+
+    background:radial-gradient(
+        circle at 30% 30%,
+        #ff9bc4,
+        #ff4f8a 70%
+    );
+
+}
+
+.s1 .bouquet-flower,
+.s12 .bouquet-flower{
+
+    transform:
+        translateX(-50%)
+        scale(.82);
+
+}
+
+.s2 .bouquet-flower,
+.s11 .bouquet-flower{
+
+    transform:
+        translateX(-50%)
+        scale(.88);
+
+}
+
+.s3 .bouquet-flower,
+.s10 .bouquet-flower{
+
+    transform:
+        translateX(-50%)
+        scale(.94);
+
+}
+
+.s4 .bouquet-flower,
+.s9 .bouquet-flower{
+
+    transform:
+        translateX(-50%)
+        scale(1);
+
+}
+
+.s5 .bouquet-flower,
+.s8 .bouquet-flower{
+
+    transform:
+        translateX(-50%)
+        scale(1.08);
+
+}
+
+.s6 .bouquet-flower,
+.s7 .bouquet-flower{
+
+    transform:
+        translateX(-50%)
+        scale(1.15);
+
+}
+
+.small-flower{
+    transform:translateX(-50%) scale(.82);
+}
+
+.medium-flower{
+    transform:translateX(-50%) scale(.95);
+}
+
+.large-flower{
+    transform:translateX(-50%) scale(1.12);
+}
+
+.flower-petal{
+
+    position:absolute;
+
+    width:22px;
+    height:22px;
+
+    border-radius:50%;
+
+    background:
+radial-gradient(
+circle at 35% 30%,
+var(--petal-light,#edd7ff),
+var(--petal,#a84dff) 72%
+);
+
+    box-shadow:
+
+        inset 0 3px 6px rgba(255,255,255,.5),
+
+        0 3px 8px rgba(110,0,255,.25);
+
+}
+
+.p1{top:0;left:19px;}
+
+.p2{top:7px;left:34px;}
+
+.p3{top:19px;left:38px;}
+
+.p4{top:34px;left:31px;}
+
+.p5{top:38px;left:19px;}
+
+.p6{top:34px;left:7px;}
+
+.p7{top:19px;left:0;}
+
+.p8{top:7px;left:7px;}
+
+.center{
+
+    position:absolute;
+
+    width:18px;
+    height:18px;
+
+    left:21px;
+    top:21px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+
+            circle,
+
+            #fff7a0,
+
+            #ffd43b,
+
+            #ffb000
+
+        );
+
+    box-shadow:
+
+        0 0 12px gold;
+
+}
+
+.flower.daisy .center{
+
+    background:
+
+        radial-gradient(
+
+            circle,
+
+            #fff7ad,
+
+            gold,
+
+            #ffb300
+
+        );
+
+}
+
+.flower.rose .center{
+
+    background:
+
+        radial-gradient(
+
+            circle,
+
+            #ffe1ef,
+
+            #ff6ba4,
+
+            #d81b60
+
+        );
+
+}
+
+
+.flower.blossom .center{
+
+    background:
+
+        radial-gradient(
+
+            circle,
+
+            #fff8a8,
+
+            #ffd84d,
+
+            #ffb300
+
+        );
+
+}
+.stem.grown .flower{
+
+    animation:bloom .6s ease forwards;
+
+}
+
+
+.bouquet-flower{
+
+    transform:
+        translateX(-50%)
+        scale(0);
+
+    transition:
+        transform .7s cubic-bezier(.2,1.4,.4,1);
+
+}
+
+.stem.grown .bouquet-flower{
+
+    transform:
+        translateX(-50%)
+        scale(1);
+
+}
+
+/*==================================================
+BUTTERFLIES
+==================================================*/
+
+.butterfly-container{
+
+    position:absolute;
+
+    inset:0;
+
+    overflow:hidden;
+
+    pointer-events:none;
+
+    z-index:90;
+
+}
+
+.butterfly{
+
+    position:absolute;
+
+    width:38px;
+
+    height:28px;
+
+    opacity:0;
+
+    transform:scale(.5);
+
+    transition:opacity .8s;
+
+}
+
+.butterfly{
+
+    position:absolute;
+
+    width:38px;
+
+    height:28px;
+
+    opacity:0;
+
+    transform:scale(.5);
+
+    transition:opacity .8s;
+
+}
+
+.wing{
+
+    position:absolute;
+
+    width:18px;
+
+    height:22px;
+
+    border-radius:60% 40% 60% 40%;
+
+    background:linear-gradient(
+135deg,
+var(--wing1),
+var(--wing2)
+);
+
+}
+
+.left-wing{
+
+    left:0;
+
+    transform-origin:right center;
+
+}
+
+.right-wing{
+
+    right:0;
+
+    transform-origin:left center;
+
+}
+
+.left-wing{
+
+    animation:leftWing .22s infinite alternate;
+
+}
+
+.right-wing{
+
+    animation:rightWing .22s infinite alternate;
+
+}
+
+
+.b1{
+
+    animation:fly1 16s linear infinite;
+
+}
+
+.b2{
+
+    animation:fly2 18s linear infinite;
+
+}
+
+.b3{
+
+    animation:fly3 14s linear infinite;
+
+}
+
+.b4{
+
+    animation:fly4 20s linear infinite;
+
+}
+
+
+/*==================================================
+PREMIUM PETAL RAIN
+==================================================*/
+
+#pr-rain-container{
+
+    position:absolute;
+
+    inset:0;
+
+    overflow:hidden;
+
+    pointer-events:none;
+
+    z-index:120;
+
+}
+
+#pr-rain-container{
+
+    position:absolute;
+
+    inset:0;
+
+    overflow:hidden;
+
+    pointer-events:none;
+
+    z-index:120;
+
+}
+
+.pr-petal{
+
+    position:absolute;
+
+    width:18px;
+    height:24px;
+
+    background:pink;
+
+    border-radius:70% 70% 70% 0;
+
+    animation-fill-mode:forwards;
+}

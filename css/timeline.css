@@ -1,0 +1,775 @@
+
+/*==========================================================
+    MEMORY TIMELINE
+==========================================================*/
+
+#timeline{
+
+    position:relative;
+
+    overflow:hidden;
+
+    padding:100px 20px;
+
+    background:linear-gradient(
+    180deg,
+    #F1E4FF,
+    #E7D0FF
+    );
+
+    text-align:center;
+    
+}
+
+#tl-flower-rain{
+
+    position:absolute;
+
+    inset:0;
+
+    overflow:hidden;
+
+    pointer-events:none;
+
+    z-index:0;
+
+}
+
+.tl-flower{
+
+    position:absolute;
+
+    top:-80px;
+
+    font-size:26px;
+
+    opacity:.8;
+
+    will-change:transform;
+
+    animation:tlFlowerFall linear forwards;
+
+}
+
+
+.timeline-container,
+.timeline-item,
+.chapter{
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+#timeline h2{
+
+    font-size:3rem;
+
+    color:var(--dark);
+
+    margin-bottom:70px;
+
+    font-family:'Great Vibes',cursive;
+
+}
+
+
+
+/* Container */
+
+.timeline-container{
+
+    position:relative;
+
+    max-width:900px;
+
+    margin:auto;
+
+}
+
+/* Center line */
+
+.timeline-container::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:4px;
+
+    background:var(--primary);
+
+    top:0;
+
+    bottom:0;
+
+    left:50%;
+    z-index: 1;
+    transform:translateX(-50%);
+
+    border-radius:10px;
+
+}
+
+/* Items */
+
+.timeline-item{
+
+    position:relative;
+
+    width:50%;
+
+    padding:20px 40px;
+
+    box-sizing:border-box;
+
+    overflow:visible;
+
+    transition:
+    opacity .8s ease,
+    transform .8s ease;
+}
+
+/* Left */
+
+.timeline-item.left{
+
+    left:0;
+
+    text-align:right;
+
+}
+
+/* Right */
+
+.timeline-item.right{
+
+    left:50%;
+
+    text-align:left;
+
+}
+
+/* Content */
+
+.timeline-content{
+
+    position:relative;
+
+    overflow:visible;
+
+    background:rgba(255,255,255,.78);
+
+    backdrop-filter:blur(18px);
+
+    border:2px solid rgba(255,255,255,.35);
+
+    border-radius:28px;
+
+    padding:22px;
+
+    box-shadow:
+        0 20px 45px rgba(106,13,173,.12);
+
+    transition:
+        .5s ease;
+
+}
+
+.timeline-content:hover{
+
+    transform:
+        translateY(-12px)
+        scale(1.02);
+
+    box-shadow:
+
+        0 30px 60px rgba(106,13,173,.25);
+
+}
+
+/*==========================================================
+    STORY CHAPTERS
+==========================================================*/
+
+.chapter{
+
+    position:relative;
+
+    max-width:720px;
+
+    margin:120px auto;
+
+    padding:20px 25px;
+
+    text-align:center;
+
+    backdrop-filter:blur(12px);
+
+    -webkit-backdrop-filter:blur(12px);
+
+    border-radius:28px;
+
+    border:1px solid rgba(255,255,255,.6);
+
+    box-shadow:
+
+        0 20px 50px rgba(123,44,191,.12),
+
+        0 10px 25px rgba(0,0,0,.08);
+
+    z-index:20;
+
+    overflow:hidden;
+
+    background:
+
+linear-gradient(
+180deg,
+#fffdf9,
+#fff8f1
+);
+
+background-image:
+
+radial-gradient(
+rgba(0,0,0,.03) 1px,
+transparent 1px
+);
+
+background-size:20px 20px;
+}
+
+.chapter::after{
+
+    content:"";
+    
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+        radial-gradient(circle at top right,
+        rgba(199,125,255,.18),
+        transparent 45%),
+
+        radial-gradient(circle at bottom left,
+        rgba(255,182,193,.15),
+        transparent 45%);
+
+    pointer-events:none;
+
+    z-index:-1;
+
+}
+
+.chapter-line{
+
+    width:90px;
+
+    height:3px;
+
+    margin:auto;
+
+    border-radius:20px;
+
+    background:
+
+        linear-gradient(
+
+            90deg,
+
+            transparent,
+
+            #c77dff,
+
+            transparent
+
+        );
+
+}
+
+.chapter-number{
+
+    display:block;
+
+    margin-top:20px;
+
+    color:#9d4edd;
+
+    letter-spacing:8px;
+
+    font-size:.8rem;
+
+    font-weight:600;
+
+}
+
+.chapter h2{
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:3.3rem;
+
+    margin:18px 0;
+
+    color:#5a189a;
+
+}
+
+.chapter p{
+
+    color:#666;
+
+    line-height:1.8;
+
+    font-size:1.1rem;
+
+}
+
+.chapter::before{
+
+    content:"ꨄ︎";
+
+    position:absolute;
+
+    top:125px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    font-size:2.5rem;
+
+    animation:
+
+        chapterFloat 4s ease-in-out infinite;
+
+}
+
+/*==========================================================
+    MEMORY IMAGE
+==========================================================*/
+
+.memory-image{
+
+    width:100%;
+
+    height:220px;
+
+    overflow:hidden;
+
+    border-radius:20px;
+
+    margin-bottom:18px;
+
+}
+
+.memory-image img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.8s ease;
+
+}
+
+.timeline-content:hover .memory-image img{
+
+    transform:scale(1.08);
+
+}
+
+/*==========================================================
+    MEMORY NUMBER
+==========================================================*/
+
+.memory-number{
+
+    position:absolute;
+
+    top:18px;
+
+    left:18px;
+
+    width:52px;
+
+    height:52px;
+
+    border-radius:50%;
+
+    background:linear-gradient(
+        135deg,
+        #6A0DAD,
+        #B266FF
+    );
+
+    color:white;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-weight:700;
+
+    font-size:1rem;
+
+    box-shadow:
+        0 10px 25px rgba(106,13,173,.35);
+
+}
+
+/*==========================================================
+    MEMORY DATE
+==========================================================*/
+
+.memory-date{
+
+    display:inline-block;
+
+    margin-bottom:10px;
+
+    color:#8E44EC;
+
+    font-size:.85rem;
+
+    font-weight:600;
+
+    letter-spacing:1px;
+
+    text-transform:uppercase;
+
+}
+
+/*==========================================================
+    MEMORY ICON
+==========================================================*/
+
+.memory-icon{
+
+    font-size:2rem;
+
+    margin-top:20px;
+
+    animation:
+        floatUp 3s ease-in-out infinite;
+
+}
+
+/* Dots */
+
+.timeline-item::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:18px;
+
+    height:18px;
+
+    background:var(--primary);
+
+    border-radius:50%;
+
+    top:25px;
+
+    z-index:1;
+
+    box-shadow:0 0 0 4px var(--light);
+
+    transition:.4s;
+}
+
+.timeline-item.active::after{
+
+    transform:scale(1.6);
+
+    background:#C77DFF;
+
+    box-shadow:
+
+        0 0 0 8px rgba(178,102,255,.15),
+
+        0 0 25px #B266FF;
+
+}
+/* Dot position */
+
+.timeline-item.left::after{
+
+    right:-9px;
+
+}
+
+.timeline-item.right::after{
+
+    left:-9px;
+
+}
+
+/* Text */
+
+.timeline-content h3{
+
+    font-size:1.8rem;
+
+    color:var(--dark);
+
+    margin-bottom:15px;
+
+    font-family:'Great Vibes',cursive;
+
+}
+
+.timeline-content p{
+
+    color:#555;
+
+    line-height:1.9;
+
+    font-size:1rem;
+
+    opacity:.55;
+filter:grayscale(.15);
+}
+
+/* Hover glow */
+
+.timeline-content:hover{
+
+    box-shadow:0 0 25px rgba(106,13,173,.25);
+
+}
+
+/*==========================================================
+    ACTIVE MEMORY CARD
+==========================================================*/
+
+.timeline-item.active-memory .timeline-content{
+
+    transform:scale(1.04);
+
+    box-shadow:
+        0 30px 70px rgba(123,44,191,.28),
+        0 0 35px rgba(199,125,255,.25);
+
+    border:2px solid rgba(199,125,255,.4);
+
+}
+
+.timeline-item.active-memory .memory-number{
+
+    transform:scale(1.15);
+
+    box-shadow:
+        0 0 20px rgba(199,125,255,.6);
+
+}
+
+.timeline-item.active-memory .memory-image img{
+
+    transform:scale(1.06);
+
+}
+
+/*==========================================================
+    FLOATING PETALS
+==========================================================*/
+
+.timeline-petal{
+
+    position:absolute;
+
+    left:50%;
+
+    top:40%;
+
+    font-size:20px;
+
+    pointer-events:none;
+
+    z-index:20;
+
+    animation:petalFloat 4s linear forwards;
+
+}
+
+
+/*==========================================================
+    GLOW BORDER
+==========================================================*/
+
+.timeline-content::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:28px;
+
+    padding:2px;
+
+    background:linear-gradient(
+        135deg,
+        transparent,
+        rgba(194,130,255,.9),
+        transparent
+    );
+
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+
+    -webkit-mask-composite:xor;
+
+    mask-composite:exclude;
+
+    opacity:0;
+
+    transition:.5s;
+
+}
+
+.timeline-item.active .timeline-content::before{
+
+    opacity:1;
+
+}
+
+.timeline-item.active .timeline-content::before{
+
+    opacity:1;
+
+}
+/*==========================================================
+    ACTIVE MEMORY
+==========================================================*/
+
+.timeline-item.active .timeline-content{
+
+    opacity:1;
+
+    filter:none;
+
+    transform:translateY(-10px);
+
+    box-shadow:
+
+        0 25px 60px rgba(106,13,173,.28),
+
+        0 0 30px rgba(157,78,221,.25);
+
+    border-color:#B266FF;
+
+}
+/*==========================================================
+    FINAL MEMORY
+==========================================================*/
+
+.final-memory .timeline-content{
+
+    text-align:center;
+
+    background:linear-gradient(
+        135deg,
+        #6A0DAD,
+        #9D4EDD
+    );
+
+    color:white;
+
+}
+
+.final-memory h3{
+
+    color:white;
+
+    font-size:2.3rem;
+
+}
+
+.final-memory p{
+
+    color:white;
+
+}
+
+/*==========================================================
+    TIMELINE FLOWER RAIN
+==========================================================*/
+
+#timeline{
+
+    position:relative;
+    overflow:hidden;
+
+}
+
+#timelinePetals{
+
+    position:absolute;
+    inset:0;
+
+    pointer-events:none;
+
+    overflow:hidden;
+
+    z-index:1;
+
+}
+
+.timeline-container,
+#timeline h2{
+
+    position:relative;
+    z-index:2;
+
+}
+
+/* Petal */
+
+.timeline-petal{
+
+    position:absolute;
+
+    top:-80px;
+
+    width:18px;
+    height:26px;
+
+    background:
+
+    radial-gradient(
+        circle at 30% 30%,
+        #ffdff8,
+        #f4a8d8 70%,
+        #de72ba
+    );
+
+    border-radius:
+    60% 40% 65% 35%;
+
+    opacity:.85;
+
+    filter:
+
+    drop-shadow(
+        0 0 6px
+        rgba(255,180,220,.5)
+    );
+
+    animation:
+
+    timelinePetalFall linear forwards;
+
+}
