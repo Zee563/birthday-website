@@ -1,0 +1,784 @@
+
+/* ==========================================================
+   ENVELOPE SECTION
+========================================================== */
+
+#envelope-section{
+    position:relative;
+    overflow:hidden;
+    min-height:100vh;
+
+    background:
+
+    linear-gradient(
+
+    180deg,
+
+    #d9b8ff 0%,
+
+    #efe4ff 35%,
+
+    #f8f3ff 100%
+);
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    flex-direction:column;
+
+    padding:80px 20px;
+
+}
+
+#envelope-section h2{
+
+    font-size:3rem;
+
+    color:var(--dark);
+
+    margin-bottom:60px;
+
+}
+
+/* Container */
+
+.envelope-container{
+    position:relative;
+    perspective:1200px;
+
+}
+
+/*==========================================================
+    PREMIUM ENVELOPE GLOW
+==========================================================*/
+
+.envelope-glow{
+
+    position:absolute;
+
+    width:520px;
+
+    height:520px;
+
+    left:50%;
+
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            rgba(186,104,255,.35),
+            transparent 70%
+        );
+
+    filter:blur(70px);
+
+    animation:
+        envelopeGlow 5s ease-in-out infinite;
+
+    z-index:-2;
+
+}
+
+/* Envelope */
+
+.envelope{
+
+    position:relative;
+
+    width:400px;
+
+    height:300px;
+
+    cursor:pointer;
+
+    transform-style:preserve-3d;
+
+    perspective:1500px;
+
+    transition:
+        transform .6s ease,
+        filter .6s ease;
+
+    animation:
+        envelopeFloat 5s ease-in-out infinite;
+
+}
+
+.envelope:hover{
+
+    transform:
+        rotateX(6deg)
+        rotateY(-6deg)
+        scale(1.04);
+
+    filter:
+        drop-shadow(
+            0 35px 60px rgba(106,13,173,.45)
+        );
+
+}
+
+.envelope-container::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-40px;
+
+    border-radius:50%;
+
+    background:
+
+    radial-gradient(
+
+    rgba(157,78,221,.18),
+
+    transparent 70%
+
+    );
+
+    filter:blur(45px);
+
+    z-index:-1;
+
+}
+/* Front */
+
+.envelope-front{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        linear-gradient(
+            135deg,
+            #A55BFF,
+            #7B2CBF,
+            #5A189A
+        );
+
+    border-radius:18px;
+
+    overflow:hidden;
+    z-index:2;
+    box-shadow:
+
+        0 25px 60px rgba(0,0,0,.25);
+
+}
+
+.envelope-front::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+        linear-gradient(
+
+            120deg,
+
+            transparent 20%,
+
+            rgba(255,255,255,.18) 50%,
+
+            transparent 80%
+
+        );
+
+    animation:
+
+        envelopeShine 5s linear infinite;
+
+}
+
+
+/* Flap */
+
+.envelope-flap{
+
+    position:absolute;
+
+    top:0;
+
+    width:100%;
+
+    height:130px;
+
+    background:#A66CFF;
+
+    clip-path:polygon(
+        0 0,
+        50% 100%,
+        100% 0
+    );
+
+    transform-origin:top;
+    z-index: 4;
+    transition:1s;
+
+}
+
+/* Letter */
+
+/*==========================================================
+    PREMIUM LANDSCAPE LETTER
+==========================================================*/
+
+.letter{
+
+    position:absolute;
+
+    left:50%;
+
+    top:100%;
+
+    transform:translate(-50%, -50%);
+
+    width:min(92vw, 650px);
+
+    min-height:380px;
+
+    padding:45px 55px;
+
+    background:linear-gradient(
+        180deg,
+        #fffefb,
+        #fff8ef
+    );
+
+    border-radius:20px;
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.25);
+
+    overflow:hidden;
+
+    z-index:4;   /* Above envelope body */
+
+    opacity:0;
+
+    transition:
+        transform .9s ease,
+        opacity .8s ease;
+}
+
+.letter{
+
+    background-image:
+
+        radial-gradient(
+
+            rgba(0,0,0,.025) 1px,
+
+        );
+
+    background-size:12px 12px;
+
+}
+.envelope.open .letter{
+
+    opacity:1;
+
+    transform:
+        translate(-50%, -82%);
+
+}
+
+/*==========================================================
+    LETTER CONTENT LAYOUT
+==========================================================*/
+
+.letter h3{
+
+    text-align:center;
+
+    margin-bottom:20px;
+
+    font-size:2.4rem;
+
+}
+
+#letterText{
+
+    width:100%;
+
+    line-height:2;
+
+    font-size:1.25rem;
+
+    white-space:pre-line;
+
+    text-align:left;
+
+}
+
+.letter-signature{
+
+    margin-top:35px;
+
+    text-align:right;
+
+}
+
+.paper-date{
+
+    text-align:right;
+
+    margin-bottom:15px;
+
+}
+❀
+/* Decorative floral border */
+
+.letter::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:16px;
+
+    border-radius:18px;
+
+    border:2px dashed rgba(170,90,255,.25);
+
+}
+
+.letter::after{
+
+    content:"❀";
+
+    position:absolute;
+
+    top:18px;
+
+    right:22px;
+
+    font-size:32px;
+
+}
+.letter h3{
+
+    color:var(--primary);
+
+    margin-bottom:15px;
+
+}
+
+.letter p{
+
+    margin-bottom:25px;
+
+    line-height:1.7;
+
+}
+
+/*==========================================================
+    PAPER DECORATIONS
+==========================================================*/
+
+.paper-decoration{
+
+    position:absolute;
+
+    font-size:1.8rem;
+
+    opacity:.65;
+
+}
+
+.paper-decoration.tl{
+
+    left:18px;
+
+    top:12px;
+
+}
+
+.paper-decoration.tr{
+
+    right:18px;
+
+    top:12px;
+
+    transform:scaleX(-1);
+
+}
+
+.paper-date{
+
+    text-align:right;
+
+    color:#8d5ca9;
+
+    font-size:.85rem;
+
+    margin-bottom:15px;
+
+    font-style:italic;
+
+}
+
+.letter-signature{
+
+    margin-top:30px;
+
+    text-align:right;
+
+    opacity:0;
+
+    transform:translateY(20px);
+
+    transition:.8s;
+
+}
+
+.letter.finished .letter-signature{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+.letter-signature span{
+
+    display:block;
+
+    color:#7B2CBF;
+
+    margin-bottom:8px;
+
+}
+
+.letter-signature h4{
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:2rem;
+
+    color:#A020F0;
+
+    margin:0;
+
+}
+
+#continue-btn{
+
+    display:block;
+
+    margin:35px auto 0;
+
+}
+
+/*==========================================================
+    PAPER SHADOW
+==========================================================*/
+
+.letter::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:22px;
+
+    box-shadow:
+
+        inset 0 0 40px rgba(0,0,0,.08);
+
+    pointer-events:none;
+
+}
+
+/*==========================================================
+    PREMIUM TYPEWRITER
+==========================================================*/
+
+#letterText{
+
+    white-space:pre-line;
+
+    line-height:1.9;
+
+    min-height:170px;
+
+    font-size:1rem;
+
+    color:#4d315f;
+
+}
+
+#typingCursor{
+
+    display:inline-block;
+
+    margin-left:2px;
+
+    font-size:1.1rem;
+
+    color:#7B2CBF;
+
+    animation:cursorBlink .8s infinite;
+
+}
+
+
+/* Continue */
+
+#continue-btn{
+
+    padding:12px 28px;
+
+    border:none;
+
+    border-radius:40px;
+
+    background:var(--primary);
+
+    color:white;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+#continue-btn:hover{
+
+    background:var(--gold);
+
+    color:#333;
+
+}
+
+
+/*==========================================================
+    ENVELOPE IMPROVEMENTS
+==========================================================*/
+
+.envelope{
+
+    position:relative;
+
+    z-index:1;
+    transition:
+        transform .4s ease;
+
+}
+
+.envelope:hover{
+
+    transform:
+        scale(1.03)
+        rotate(-1deg);
+
+}
+
+/* Heart Seal */
+
+.envelope::before{
+
+    content:"❤";
+
+    position:absolute;
+
+    left:50%;
+    top:55%;
+
+    transform:translate(-50%,-50%);
+
+    width:55px;
+    height:55px;
+
+    background:white;
+
+    color:#E91E63;
+
+    border-radius:50%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:22px;
+
+    z-index:4;
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,.15);
+
+}
+
+/* Remove seal after opening */
+
+.envelope.open::before{
+
+    opacity:0;
+
+    transition:.5s;
+
+}
+
+/* Continue Button */
+
+#continue-btn{
+
+    opacity:0;
+
+    transform:translateY(20px);
+
+    transition:
+        .5s;
+
+}
+
+/* Better Letter */
+
+.letter{
+
+    line-height:1.8;
+
+    font-size:1rem;
+
+}
+
+/*==========================================================
+    FLOATING DUST
+==========================================================*/
+
+.floating-dust{
+
+    position:absolute;
+
+    inset:0;
+
+    pointer-events:none;
+
+    overflow:hidden;
+
+}
+
+.dust{
+
+    position:absolute;
+
+    width:6px;
+
+    height:6px;
+
+    border-radius:50%;
+
+    background:white;
+
+    opacity:.35;
+
+    animation:
+
+        dustFloat linear forwards;
+
+}
+
+
+/*==========================================================
+    WAX SEAL
+==========================================================*/
+
+.wax-seal{
+
+    position:absolute;
+
+    left:50%;
+
+    top:58%;
+
+    transform:translate(-50%,-50%);
+
+    width:82px;
+
+    height:82px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle at 30% 30%,
+            #ff8ab8,
+            #d81b60,
+            #8e0038
+        );
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    box-shadow:
+        0 12px 35px rgba(0,0,0,.35),
+        0 0 30px rgba(255,80,150,.45);
+
+    /* Behind the letter, above the envelope */
+    z-index:3;
+
+    animation:
+        sealPulse 2.8s infinite;
+
+    transition:
+        transform .5s ease,
+        opacity .5s ease;
+
+}
+.seal-heart{
+
+    font-size:2rem;
+
+    filter:drop-shadow(0 0 8px white);
+
+}
+
+
+.wax-seal.break{
+
+    animation:
+
+        sealBreak .7s forwards;
+
+}
+
+
+.seal-sparkle{
+
+    position:absolute;
+
+    width:8px;
+
+    height:8px;
+
+    border-radius:50%;
+
+    background:white;
+
+    box-shadow:
+
+        0 0 15px white;
+
+    animation:
+
+        sparkleBurst .8s forwards;
+
+}

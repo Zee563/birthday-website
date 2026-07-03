@@ -1,0 +1,754 @@
+
+/*==========================================================
+        PHOTO ALBUM PETALS
+==========================================================*/
+
+#albumPetals{
+
+    position:absolute;
+
+    inset:0;
+
+    overflow:hidden;
+
+    pointer-events:none;
+
+    z-index:0;
+
+}
+
+.album-grid,
+#album h2{
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+.album-petal{
+
+    position:absolute;
+
+    top:-60px;
+
+    width:18px;
+
+    height:24px;
+
+    opacity:.9;
+
+    border-radius:
+        70% 40%
+        70% 40%;
+
+    background:
+
+    radial-gradient(
+
+        circle at 30% 30%,
+
+        #ffe8fb,
+
+        #ffb4df 65%,
+
+        #d946ef
+
+    );
+
+    filter:
+
+        drop-shadow(
+            0 0 8px
+            rgba(255,180,240,.45)
+        );
+
+    animation:
+
+        albumPetalFall linear forwards;
+
+}
+
+.album-petal{
+
+    position:absolute;
+
+    top:-60px;
+
+    animation:albumPetalFall linear forwards;
+
+}
+
+
+/*==========================================================
+    PHOTO ALBUM
+==========================================================*/
+
+#album{
+    
+    position:relative;
+
+    overflow:hidden;
+
+    padding:100px 20px;
+
+    text-align:center;
+
+    background:#7749a9;
+
+}
+
+#album h2{
+
+    font-size:3rem;
+
+    margin-bottom:50px;
+
+    color:var(--dark);
+
+    font-family:'Great Vibes',cursive;
+
+}
+
+/* =========================
+   MEMORY COLLAGE GRID
+========================= */
+
+/*==========================================================
+    PREMIUM ALBUM GRID
+==========================================================*/
+
+.album-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(auto-fit,minmax(260px,1fr));
+
+    grid-auto-rows:220px;
+
+    gap:22px;
+
+    max-width:1300px;
+
+    margin:auto;
+
+    padding:20px;
+
+}
+
+/*==========================================================
+    PHOTO ALBUM - SCATTERED POLAROID
+==========================================================*/
+
+.album-item{
+
+    position:relative;
+
+    overflow:visible;
+
+    transition:
+        transform .45s ease,
+        box-shadow .45s ease,
+        filter .45s ease;
+
+    animation:
+        albumFloat 7s ease-in-out infinite;
+
+    will-change:transform;
+
+}
+
+
+.album-item:nth-child(1){
+
+animation-delay:.2s;
+
+}
+
+.album-item:nth-child(2){
+
+animation-delay:1.3s;
+
+}
+
+.album-item:nth-child(3){
+
+animation-delay:2.1s;
+
+}
+
+.album-item:nth-child(4){
+
+animation-delay:.7s;
+
+}
+
+.album-item:nth-child(5){
+
+animation-delay:1.8s;
+
+}
+
+.album-item:nth-child(6){
+
+animation-delay:2.8s;
+
+}
+
+.album-item:nth-child(7){
+
+animation-delay:.9s;
+
+}
+
+.album-item:nth-child(8){
+
+animation-delay:2.4s;
+
+}
+
+
+.album-item::after{
+
+content:"";
+
+position:absolute;
+
+top:-25%;
+
+left:-120%;
+
+width:40%;
+
+height:150%;
+
+background:
+
+linear-gradient(
+
+90deg,
+
+
+
+);
+
+transform:rotate(18deg);
+
+transition:1.2s;
+
+pointer-events:none;
+
+}
+
+.album-item:hover::after{
+
+left:140%;
+
+}
+/* Photo 1 */
+
+.album-item:nth-child(1){
+
+    transform:
+    rotate(-5deg);
+
+}
+
+/* Photo 2 */
+
+.album-item:nth-child(2){
+
+    transform:
+    rotate(4deg);
+
+}
+
+/* Photo 3 */
+
+.album-item:nth-child(3){
+
+    transform:
+    rotate(-2deg);
+
+}
+
+/* Photo 4 */
+
+.album-item:nth-child(4){
+
+    transform:
+    rotate(5deg);
+
+}
+
+/* Photo 5 */
+
+.album-item:nth-child(5){
+
+    transform:
+    rotate(-4deg);
+
+}
+
+/* Photo 6 */
+
+.album-item:nth-child(6){
+
+    transform:
+    rotate(3deg);
+
+}
+
+/* Photo 7 */
+
+.album-item:nth-child(7){
+
+    transform:
+    rotate(-6deg);
+
+}
+
+/* Photo 8 */
+
+.album-item:nth-child(8){
+
+    transform:
+    rotate(2deg);
+
+}
+
+.album-item:hover{
+
+transform:
+
+rotate(0deg)
+
+translateY(-18px)
+
+scale(1.07);
+
+filter:
+
+brightness(1.05);
+
+box-shadow:
+
+0 28px 70px rgba(0,0,0,.28),
+
+0 0 40px rgba(157,78,221,.25);
+
+z-index:200;
+
+}
+
+.album-item.tall{
+
+    grid-row:span 2;
+
+}
+
+.album-item.wide{
+
+    grid-column:span 2;
+
+}
+
+/* =========================
+   9-IMAGE COLLAGE LAYOUT
+========================= */
+
+/* BIG FEATURE IMAGE */
+.album-img:nth-child(1) {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+/* VERTICAL HERO */
+.album-img:nth-child(2) {
+    grid-column: span 2;
+    grid-row: span 3;
+}
+
+/* SMALL DETAIL */
+.album-img:nth-child(3) {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+/* WIDE MEMORY */
+.album-img:nth-child(4) {
+    grid-column: span 1;
+    grid-row: span 1;
+}
+
+/* CENTER PIECE */
+.album-img:nth-child(5) {
+    grid-column: span 1;
+    grid-row: span 1;
+}
+
+/* SMALL TILE */
+.album-img:nth-child(6) {
+    grid-column: span 1;
+    grid-row: span 1;
+}
+
+/* NEW IMAGE 7 (accent wide) */
+.album-img:nth-child(7) {
+    grid-column: span 2;
+    grid-row: span 1;
+}
+
+/* NEW IMAGE 8 (tall accent) */
+.album-img:nth-child(8) {
+    grid-column: span 1;
+    grid-row: span 2;
+}
+
+/* NEW IMAGE 9 (final memory tile) */
+.album-img:nth-child(9) {
+    grid-column: span 3;
+    grid-row: span 1;
+}
+
+/* =========================
+   CINEMATIC IMAGE STYLE
+========================= */
+
+/* =========================
+   ELEGANT PHOTO FRAME
+========================= */
+
+.album-img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+
+    transition:
+
+        transform .6s ease,
+
+        filter .6s ease;
+
+}
+
+.album-item:hover .album-img{
+
+transform:
+
+scale(1.12)
+
+rotate(-1deg);
+
+filter:
+
+brightness(1.08)
+
+saturate(1.2);
+
+}
+
+.album-item::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+        linear-gradient(
+
+            to top,
+
+            rgba(0,0,0,.25),
+
+            transparent 55%
+
+        );
+
+    opacity:0;
+
+    transition:.4s;
+
+    z-index:2;
+
+}
+
+.album-item:hover::before{
+
+    opacity:1;
+
+}
+
+.album-img:hover{
+
+    transform:
+        translateY(-8px)
+        scale(1.04)
+        rotate(-1deg);
+
+    filter:brightness(1.05);
+
+    border-color:#9D4EDD;
+
+    box-shadow:
+    0 20px 45px rgba(106,13,173,.35),
+    0 0 40px rgba(157,78,221,.45);
+
+}
+
+/*==========================================================
+    PHOTO FRAME
+==========================================================*/
+
+.photo-frame{
+
+    position:relative;
+
+    width:100%;
+    height:100%;
+
+    background:white;
+
+    padding:14px 14px 55px;
+
+    border-radius:12px;
+
+    border:1px solid rgba(255,255,255,.7);
+
+backdrop-filter:blur(2px);
+
+    overflow:hidden;
+
+    box-shadow:
+
+        0 18px 35px rgba(0,0,0,.15);
+
+}
+
+.photo-frame img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    border-radius:8px;
+
+}
+
+.photo-caption{
+
+    position:absolute;
+
+    left:0;
+    right:0;
+    bottom:16px;
+
+    text-align:center;
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:1.7rem;
+
+    color:#7b2cbf;
+
+}
+
+.tape{
+
+    position:absolute;
+
+    width:90px;
+
+    height:28px;
+
+    background:
+
+        rgba(255,245,180,.72);
+
+    z-index:5;
+
+    backdrop-filter:blur(2px);
+
+}
+
+.tape-left{
+
+    top:10px;
+
+    left:-20px;
+
+    transform:rotate(-25deg);
+
+}
+
+.tape-right{
+
+    top:10px;
+
+    right:-20px;
+
+    transform:rotate(25deg);
+
+}
+
+.album-item:nth-child(odd){
+
+    transform:rotate(-2deg);
+
+}
+
+.album-item:nth-child(even){
+
+    transform:rotate(2deg);
+
+}
+
+.album-item:nth-child(3n){
+
+    transform:rotate(-1deg);
+
+}
+
+.album-item:hover{
+
+    transform:
+
+        rotate(0deg)
+
+        translateY(-12px)
+
+        scale(1.04);
+
+}
+
+.photo-frame::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:12px;
+
+    box-shadow:
+
+        inset 0 0 18px rgba(0,0,0,.05);
+
+    pointer-events:none;
+
+}
+/* =========================
+   CINEMATIC LIGHTBOX
+========================= */
+
+/*==========================================================
+    CINEMATIC LIGHTBOX
+==========================================================*/
+
+#lightbox{
+
+    position:fixed;
+
+    inset:0;
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:9999;
+
+    overflow:hidden;
+
+}
+/* when active */
+#lightbox.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+#lightbox img{
+    position: relative;
+    z-index: 2;
+    max-width:80%;
+
+    max-height:80%;
+
+    border-radius:15px;
+
+    box-shadow:0 0 40px rgba(255,255,255,.2);
+
+}
+
+/* CLOSE BUTTON */
+
+#closeLightbox{
+
+    position:absolute;
+
+    top:30px;
+
+    right:40px;
+
+    font-size:3rem;
+
+    color:white;
+
+    cursor:pointer;
+
+    z-index:20;
+
+    transition:.3s;
+
+}
+
+#closeLightbox:hover{
+
+    transform:rotate(90deg);
+
+}
+
+
+/* NAV BUTTONS */
+
+.nav{
+
+    margin-top:20px;
+
+}
+
+.nav button{
+
+    background:var(--primary);
+
+    color:white;
+
+    border:none;
+
+    padding:10px 20px;
+
+    margin:0 10px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+}
+
+.nav button:hover{
+
+    background:var(--secondary);
+
+}
